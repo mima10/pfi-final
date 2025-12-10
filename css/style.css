@@ -2,6 +2,7 @@
     --gap: 5px;
     --trans-speed: 0.5s;
 }
+
 * {
     margin: 0px;
     padding: 0px;
@@ -108,6 +109,7 @@
         height: 40px;
     }
 }
+
 /*      Pour afficher la mosaique */
 .imageFrame {
     background-position: center;
@@ -116,29 +118,91 @@
     aspect-ratio: 1/1;
     cursor: pointer;
     border-radius: 6px;
+
     &:hover {
-    scale: 1.05;
-    transition: var(--trans-speed);
+        scale: 1.05;
+        transition: var(--trans-speed);
     }
+
     transition: var(--trans-speed);
 }
-.imageGestion{
+
+.imageGestion {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--gap, 5px);
-    @media (min-width : 500px){
+
+    @media (min-width : 500px) {
         grid-template-columns: repeat(2, 1fr);
     }
-    @media (min-width : 700px){
+
+    @media (min-width : 700px) {
         grid-template-columns: repeat(3, 1fr);
     }
-    @media (min-width : 900px){
+
+    @media (min-width : 900px) {
         grid-template-columns: repeat(4, 1fr);
     }
-    @media (min-width : 1100px){
+
+    @media (min-width : 1100px) {
         grid-template-columns: repeat(5, 1fr);
     }
-    @media (min-width : 1400px){
+
+    @media (min-width : 1400px) {
         grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+/*          Afficher cours clg 420  */
+
+:root {
+    --duration: 0.75s;
+    --detailsPadding: 25px;
+    interpolate-size: allow-keywords;
+}
+
+summary {
+    cursor: pointer;
+    background-color: #D3D3D3;
+    font-size: 35px;
+    border-top-right-radius: 9px;
+    border-bottom-right-radius: 9px;
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
+
+
+    
+    /* À compléter */
+    &::marker {
+        font-size: 1.0em;
+    }
+}
+
+details {
+    div {
+        font-size: 30px;
+        /* À compléter */
+    }
+
+    span {
+        /* À compléter */
+        color: #1A1AFF;
+        font-family: monospace;
+    }
+
+    &::details-content {
+        opacity: 0;
+        block-size: 0;
+        overflow-y: clip;
+        transition:
+            /* paramètres de l'animation */
+            content-visibility var(--duration) allow-discrete,
+            opacity var(--duration),
+            block-size var(--duration);
+    }
+
+    &[open]::details-content {
+        opacity: 1;
+        block-size: auto;
     }
 }
